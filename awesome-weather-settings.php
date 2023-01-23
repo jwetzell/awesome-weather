@@ -56,7 +56,7 @@ function awesome_weather_setting_init()
 {
     register_setting( 'awe-basic-settings-group', 'awe-weather-provider' );
     register_setting( 'awe-basic-settings-group', 'open-weather-key' );
-    register_setting( 'awe-basic-settings-group', 'darksky-secret-key' );
+    register_setting( 'awe-basic-settings-group', 'pirate-weather-secret-key' );
     register_setting( 'awe-basic-settings-group', 'location-iq-token' );
     register_setting( 'awe-basic-settings-group', 'aw-error-handling' );
     register_setting( 'awe-basic-settings-group', 'ipinfo-token' );
@@ -65,7 +65,7 @@ function awesome_weather_setting_init()
 	add_settings_field( 'awe-weather-provider', __('Default Weather Provider', 'awesome-weather'), 'awesome_weather_weather_provider', 'awesome-weather', 'awe-basic-settings' );
 	
 	add_settings_field( 'open-weather-key', __('OpenWeatherMaps APPID', 'awesome-weather'), 'awesome_weather_openweather_key', 'awesome-weather', 'awe-basic-settings' );
-	add_settings_field( 'darksky-secret-key', __('Dark Sky Secret Key', 'awesome-weather'), 'awesome_weather_darksky_secret_key', 'awesome-weather', 'awe-basic-settings' );
+	add_settings_field( 'pirate-weather-secret-key', __('Pirate Weather API Key', 'awesome-weather'), 'awesome_weather_pirate_weather_secret_key', 'awesome-weather', 'awe-basic-settings' );
 	add_settings_field( 'location-iq-token', __('LocationIQ Token', 'awesome-weather'), 'awesome_weather_location_iq_token', 'awesome-weather', 'awe-basic-settings' );
 	add_settings_field( 'ipinfo-token', __('ipinfo.io Token', 'awesome-weather'), 'awesome_weather_ipinfo_token', 'awesome-weather', 'awe-basic-settings' );
 	add_settings_field( 'aw-error-handling', __('Error Handling', 'awesome-weather'), 'awesome_weather_error_handling_setting', 'awesome-weather', 'awe-basic-settings' );
@@ -118,7 +118,7 @@ function awesome_weather_weather_provider()
 		if( !$setting ) $setting = 'openweathermaps';
 	
 		echo "<input type='radio' id='awe-settings-provider-owm' name='awe-weather-provider' value='openweathermaps' " . checked( $setting, 'openweathermaps', false ) . " /> <label for='awe-settings-provider-owm'>OpenWeatherMap</label> &nbsp; &nbsp; ";
-		echo "<input type='radio' id='awe-settings-provider-darksky' name='awe-weather-provider' value='darksky' " . checked( $setting, 'darksky', false ) . " /> <label for='awe-settings-provider-darksky'>Dark Sky</label> ";
+		echo "<input type='radio' id='awe-settings-provider-darksky' name='awe-weather-provider' value='darksky' " . checked( $setting, 'darksky', false ) . " /> <label for='awe-settings-provider-darksky'>Pirate Weather</label> ";
 		echo "<p>";
 		echo __("Where do you want your weather data to be provided from. If you change this, it's a good idea to clear the cache below.", 'awesome-weather');
 		echo "</p>";
@@ -146,20 +146,20 @@ function awesome_weather_openweather_key()
 	if( isset($_GET['highlight']) AND $_GET['highlight'] == 'openweathermaps' ) echo '</div>';
 }
 
-function awesome_weather_darksky_secret_key()
+function awesome_weather_pirate_weather_secret_key()
 {
 	if( isset($_GET['highlight']) AND $_GET['highlight'] == 'darksky' ) echo '<div style="background: #f3f39b; padding: 20px;">';
 	
-	if( defined('AWESOME_WEATHER_DARKSKY_KEY') )
+	if( defined('AWESOME_WEATHER_PIRATE_WEATHER_KEY') )
 	{
-		echo __('Defined in wp-config', 'awesome-weather') . ": <code>" . substr(AWESOME_WEATHER_DARKSKY_KEY,0,7) . "..." . substr(AWESOME_WEATHER_DARKSKY_KEY, strlen(AWESOME_WEATHER_DARKSKY_KEY) - 7) . "</code>";
+		echo __('Defined in wp-config', 'awesome-weather') . ": <code>" . substr(AWESOME_WEATHER_PIRATE_WEATHER_KEY,0,7) . "..." . substr(AWESOME_WEATHER_PIRATE_WEATHER_KEY, strlen(AWESOME_WEATHER_PIRATE_WEATHER_KEY) - 7) . "</code>";
 	}
 	else 
 	{
-		$setting = esc_attr( get_option( 'darksky-secret-key' ) );
-		echo "<input type='text' name='darksky-secret-key' value='$setting' style='width:70%;' />";
-		echo "<p>Dark Sky is a weather provider that users latitude and longitude to calculate weather. ";
-		echo "<br><a href='https://darksky.net/dev/account' target='_blank' class='button'>" . __('Get a Secret Key', 'awesome-weather') . "</a>";
+		$setting = esc_attr( get_option( 'pirate-weather-secret-key' ) );
+		echo "<input type='text' name='pirate-weather-secret-key' value='$setting' style='width:70%;' />";
+		echo "<p>Pirate Weather is a weather provider that users latitude and longitude to calculate weather. ";
+		echo "<br>";
 		echo "</p>";
 	}
 	

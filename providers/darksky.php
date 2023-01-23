@@ -74,7 +74,7 @@ function awesome_weather_get_weather_data_darksky( &$weather )
 	$latlng = awesome_weather_parse_lat_lon( $weather->latlng );
 	
 	// CURRENT WEATHER
-	$now_ping 			= AWESOME_WEATHER_DARKSKY_API_URL . 'forecast/' . $key . '/' . $latlng->lat . ',' . $latlng->lng . '?lang=' . $weather->locale . '&units=' . $units_query . '&timezone=' . get_option('timezone_string');
+	$now_ping 			= AWESOME_WEATHER_PIRATE_WEATHER_API_URL . 'forecast/' . $key . '/' . $latlng->lat . ',' . $latlng->lng . '?lang=' . $weather->locale . '&units=' . $units_query . '&timezone=' . get_option('timezone_string');
 	$now_ping_get 		= wp_remote_get( $now_ping );
 	
 	if( is_wp_error( $now_ping_get ) ) 

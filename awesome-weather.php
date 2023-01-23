@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: Awesome Weather Widget
-Plugin URI: https://halgatewood.com/awesome-weather
+Plugin Name: Awesome Weather Widget (PW Edition)
+Plugin URI: https://github.com/jwetzell/awesome-weather
 Description: A weather widget that actually looks cool
 Author: Hal Gatewood
 Author URI: https://www.halgatewood.com
-Version: 3.0
+Version: 4.0
 Text Domain: awesome-weather
 Domain Path: /languages
 
@@ -17,7 +17,7 @@ https://halgatewood.com/docs/plugins/awesome-weather-widget/available-filters
 
 define( 'AWESOME_WEATHER_LOOKUP_URL', 'https://ipinfo.io/[[IP]]/json' );
 define( 'AWESOME_WEATHER_OWM_API_URL', 'https://api.openweathermap.org/data/2.5/' );
-define( 'AWESOME_WEATHER_DARKSKY_API_URL', 'https://api.darksky.net/' );
+define( 'AWESOME_WEATHER_PIRATE_WEATHER_API_URL', 'https://api.pirateweather.net/' );
 define( 'AWESOME_WEATHER_LOCATIONIQ_API_URL', apply_filters('awesome_weather_locationiq_endpoint', 'https://us1.locationiq.com/v1/') );
 define( 'AWESOME_WEATHER_PLUGIN_BASE', plugin_dir_url( __FILE__ ) );
 
@@ -689,7 +689,7 @@ function awe_get_appid()
 // GET DARKSKY KEY
 function awe_get_darksky_key()
 {
-	return trim(defined('AWESOME_WEATHER_DARKSKY_KEY') ? AWESOME_WEATHER_DARKSKY_KEY : get_option( 'darksky-secret-key' ));
+	return trim(defined('AWESOME_WEATHER_PIRATE_WEATHER_KEY') ? AWESOME_WEATHER_PIRATE_WEATHER_KEY : get_option( 'pirate-weather-secret-key' ));
 }
 
 // GET IPINFO TOKEN
@@ -1094,8 +1094,8 @@ function awe_attribution( $weather )
 	
 	if( $weather->provider == 'darksky' )
 	{
-		$attr_text = '<a href="https://darksky.net/poweredby/" target="_blank">';
-		$attr_text .= __('Powered by Dark Sky', 'awesome-weather');
+		$attr_text = '<a href="https://pirateweather.net/" target="_blank">';
+		$attr_text .= __('Powered by Pirate Weather', 'awesome-weather');
 		$attr_text .= '</a>';
 	}
 	else
