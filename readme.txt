@@ -1,3 +1,5 @@
+!!!! This is a modified version of the plugin to use Pirate Weather API due to Dark Sky shutdown
+
 === Awesome Weather Widget ===
 Contributors: halgatewood
 Donate link: https://halgatewood.com/donate/
