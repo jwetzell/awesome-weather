@@ -1,6 +1,7 @@
-!!!! This is a modified version of the plugin to use Pirate Weather API due to Dark Sky shutdown
+**!!!! This is a modified version of the plugin to use Pirate Weather API due to Dark Sky shutdown**
 
 === Awesome Weather Widget ===
+
 Contributors: halgatewood
 Donate link: https://halgatewood.com/donate/
 Tags: widgets, sidebar, shortcode, openweathermap, darksky, weather, weather widget, forecast, global, temp, local weather, local forecast
@@ -17,6 +18,7 @@ Finally beautiful weather widgets for your beautiful site.
 This plugin allows you to easily add super clean (and awesome) weather widgets to your site. 
 
 = Weather by OpenWeatherMap or Dark Sky =
+
 The weather data is available either by [OpenWeatherMap](https://openweathermap.org) or [Dark Sky](https://darksky.net). 
 
 They require a free to access the data. 
@@ -27,6 +29,7 @@ They require a free to access the data.
 Once you have the API Key, you can save it in the WordPress admin under `'Settings' -> 'Awesome Weather'`
 
 = Help Guides =
+
 There are lots of juicy [Help Guides on my website](https://halgatewood.com/docs/plugins/awesome-weather-widget).
 These will answer most of the questions you have. 
 Some popular ones include:
@@ -41,9 +44,11 @@ Some popular ones include:
 *   [API Key Settings](https://halgatewood.com/docs/plugins/awesome-weather-widget/register-for-an-openweathermap-api-key-appid)
 
 = About the Developer =
+
 The development of this plugin was done by [Hal Gatewood](https://halgatewood.com) mostly when I should be sleeping. I have a full time job that is not building WordPress plugins, so please keep this in mind when you submit your support tickets. I also **do not work for OpenWeatherMap or Dark Sky** and have no control over the quality of the weather data returned from them. Sorry.
 
 = Setup =
+
 Use the built in widget with all of its marvelous settings or add it to a page or theme with the shortcode:
 `[awesome-weather owm_city_id="4544349"]` or `[awesome-weather location="Oklahoma City"]`
 
